@@ -1,3 +1,5 @@
+[![Python CI/CD Pipeline](https://github.com/nogibjj/SiMinL_Week8Mini/actions/workflows/CIPython.yml/badge.svg)](https://github.com/nogibjj/SiMinL_Week8Mini/actions/workflows/CIPython.yml)
+[![Rust CI/CD Pipeline](https://github.com/nogibjj/SiMinL_Week8Mini/actions/workflows/CI.yml/badge.svg)](https://github.com/nogibjj/SiMinL_Week8Mini/actions/workflows/CI.yml)
 
 # Requirements 
 - Take an existing Python script for data processing
