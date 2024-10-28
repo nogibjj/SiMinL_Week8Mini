@@ -11,3 +11,7 @@ This repository contains Rust and Python implementations for approximating defin
 Time taken for Python and Rust programs are recorded.
 
 # Results
+<img width="272" alt="image" src="https://github.com/user-attachments/assets/5d7b72f9-ae33-4204-a763-20895d4fa021">
+<img width="338" alt="image" src="https://github.com/user-attachments/assets/26565a6e-5add-4d02-b8ae-87fdea99817e">
+
+Clearly, Rust is faster than Python.
