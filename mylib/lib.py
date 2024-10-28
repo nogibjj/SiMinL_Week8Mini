@@ -4,7 +4,7 @@ import resource
 
 def trapezoidal_rule(a: float, b: float, n: int, func: callable) -> float:
     """
-    Calculate the integral of `func` over the interval [a, b] using the trapezoidal rule with n segments.
+    Calculate  integral over interval [a, b] with trapezoidal rule with n segments.
     """
     h = (b - a) / n
     result = 0.5 * (func(a) + func(b))
@@ -18,13 +18,6 @@ def calculate_time_memory_trapezoidal(
 ) -> tuple:
     """
     Calculate the integral using the trapezoidal rule and measure the time and memory usage.
-
-    Parameters:
-    - a (float): Start of the interval.
-    - b (float): End of the interval.
-    - n (int): Number of segments.
-    - func (callable): Function to integrate.
-
     Returns:
     - result (float): The calculated integral.
     - memory_usage_change (int): Change in memory usage (in kilobytes).
