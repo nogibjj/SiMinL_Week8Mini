@@ -6,12 +6,10 @@ where
 {
     let h = (b - a) / n as f64;
     let mut integral = 0.5 * (f(a) + f(b)); // Starting with the endpoints
-    // Sum up the intermediate points
+                                            // Sum up the intermediate points
     for i in 1..n {
         let x = a + i as f64 * h;
         integral += f(x);
     }
     integral * h // Multiply by the width of each segment
 }
-
-

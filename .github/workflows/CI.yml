@@ -1,41 +1,36 @@
-name: CI/CD
-
+name: Rust CI/CD Pipeline
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
   pull_request:
-    branches:
-      - main
-
+    branches: [ "main" ]
+env:
+  CARGO_TERM_COLOR: always
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-
-    - name: Install Rust
-      uses: actions-rs/toolchain@v1
+    - uses: actions/checkout@v3
+    - uses: actions-rs/toolchain@v1
       with:
-        toolchain: stable
-        override: true
-
-    - name: Check
-      run: make check
-
+          toolchain: stable
+          profile: minimal
+          components: clippy, rustfmt
+          override: true
+    - name: update linux
+      run: sudo apt update 
+    - name: update Rust
+      run: make install
+    - name: Check Rust versions
+      run: make rust-version
     - name: Format
       run: make format
-
+    - name: Lint
+      run: make lint
     - name: Test
       run: make test
-
-    - name: Release
-      run: cargo build --release
-
-    - name: Upload Binary Artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: Rust Binary Artifact
-        path: target/release/integration # <-- Ensure the name matches your binary (check toml file)
+    - name: pull repository
+      run: git pull
+    - name: add rust logs
+      run: make generate_and_push
+    

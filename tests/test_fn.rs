@@ -26,6 +26,4 @@ mod tests {
         let expected = 2.0; // Exact integral of sin(x) over [0, π] is 2
         assert!((result - expected).abs() < 0.001);
     }
-
-
 }

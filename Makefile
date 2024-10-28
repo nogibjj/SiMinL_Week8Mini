@@ -21,3 +21,14 @@ release:
 
 #Debug mode: binary is found at target/debug/
 #release mode: binary is found at target/release. Uses full optimisations.
+generate_and_push:
+	# Add, commit, and push the generated files to GitHub
+	@if [ -n "$$(git status --porcelain)" ]; then \
+		git config --local user.email "action@github.com"; \
+		git config --local user.name "GitHub Action"; \
+		git add .; \
+		git commit -m "Add metric log"; \
+		git push; \
+	else \
+		echo "No changes to commit. Skipping commit and push."; \
+	fi
