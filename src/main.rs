@@ -2,9 +2,9 @@
 // Define and handle CLI arguments using clap crate
 
 use integration::trapezoidal_rule;
-use std::time::Instant; // Importing the time module
 use std::fs::OpenOptions;
 use std::io::{Result, Write};
+use std::time::Instant; // Importing the time module
 use sys_info; // for tracking memory usage
 
 fn append_to_md_file(file_name: &str, result: f64, duration: &u128, mem_used: &u64) -> Result<()> {
@@ -55,12 +55,20 @@ fn main() {
     let mem_used = mem_info_after.total - mem_info_before.total;
 
     // Print the result
-    println!("The approximate integral of x^2 over [0, 1] is: {:.5}", result);
+    println!(
+        "The approximate integral of x^2 over [0, 1] is: {:.5}",
+        result
+    );
     println!("Time taken: {} microseconds", elapsed_time);
     println!("Memory used: {} KB", mem_used);
 
     // Append the result to a markdown file
-    match append_to_md_file("rust_integration_times.md", result, &elapsed_time, &mem_used) {
+    match append_to_md_file(
+        "rust_integration_times.md",
+        result,
+        &elapsed_time,
+        &mem_used,
+    ) {
         Ok(_) => println!("Results successfully written to rust_integration_times.md"),
         Err(e) => eprintln!("Failed to write results: {:?}", e),
     }
