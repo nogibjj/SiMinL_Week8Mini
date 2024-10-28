@@ -56,7 +56,10 @@ def calculate_time_memory_trapezoidal(
 # Example usage
 if __name__ == "__main__":
     # Define the function to integrate, e.g., f(x) = x^2
-    f = lambda x: x**2
+    def f(x):
+        return x**2
 
     # Integrate f(x) = x^2 over the interval [0, 1] with 100 segments
-    calculate_time_memory_trapezoidal(0.0, 1.0, 100, f)
+    result, memory_usage, elapsed_time = calculate_time_memory_trapezoidal(
+        0.0, 1.0, 100, f
+    )

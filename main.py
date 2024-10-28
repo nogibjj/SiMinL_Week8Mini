@@ -1,4 +1,3 @@
-import argparse
 import time
 from mylib.lib import trapezoidal_rule
 
@@ -20,7 +19,8 @@ def append_to_md_file(file_name: str, result: float, duration: float) -> None:
 
 def main():
     # Define the function to integrate (e.g., f(x) = x^2)
-    f = lambda x: x**2
+    def f(x):
+        return x**2
 
     # Define the interval and number of segments
     a = 0.0

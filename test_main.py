@@ -32,7 +32,10 @@ def test_trapezoidal_rule_with_sine():
 
 def test_calculate_time_memory_trapezoidal():
     """Test calculate_time_memory_trapezoidal to ensure it returns expected results."""
-    f = lambda x: x**2
+
+    def f(x):
+        return x**2
+
     result, memory_usage, elapsed_time = calculate_time_memory_trapezoidal(
         0.0, 1.0, 100, f
     )
