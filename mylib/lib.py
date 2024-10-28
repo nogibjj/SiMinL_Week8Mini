@@ -17,7 +17,7 @@ def calculate_time_memory_trapezoidal(
     a: float, b: float, n: int, func: callable
 ) -> tuple:
     """
-    Calculate the integral using the trapezoidal rule and measure the time and memory usage.
+    Calculate the integral with trapezoidal rule & measure time and memory usage.
     Returns:
     - result (float): The calculated integral.
     - memory_usage_change (int): Change in memory usage (in kilobytes).
