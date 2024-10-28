@@ -1,8 +1,14 @@
 # Makefile for Rust Project
-all: check build format lint test
+all: install check build format lint test
 
 check:
 	cargo check
+
+install:
+	# Install if needed
+	#@echo "Updating rust toolchain"
+	#rustup update stable
+	#rustup default stable
 
 build:
 	cargo build
