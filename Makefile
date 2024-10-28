@@ -33,6 +33,29 @@ test:
 release:
 	cargo build --release
 
+python_install:
+	pip install --upgrade pip &&\
+		pip install -r requirements.txt
+
+python_test:
+	python -m pytest -vv --cov=main --cov=mylib test_*.py
+
+python_format:	
+	black *.py 
+
+python_lint:
+	ruff check *.py mylib/*.py
+
+python_container-lint:
+	docker run --rm -i hadolint/hadolint < Dockerfile
+
+python_refactor: format lint
+
+python_deploy:
+	#deploy goes here
+		
+python_all: install lint test format deploy
+
 #Debug mode: binary is found at target/debug/
 #release mode: binary is found at target/release. Uses full optimisations.
 generate_and_push:
